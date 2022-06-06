@@ -6,24 +6,11 @@ function Cuisine() {
   const [cuisine, setCuisine] = useState([]);
   let params = useParams();
   const getCuisine = async (name) => {
-    // const data = await fetch(
-    //   `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`
-    // );
-    // const recipes = await data.json();
-    // setCuisine(recipes.results);
-    const check = localStorage.getItem("cusisine");
-    if (check) {
-      setCuisine(JSON.parse(check));
-    } else {
-      const api = await fetch(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`
-      );
-      const recipes = await api.json();
-
-      localStorage.setItem("cuisine", JSON.stringify(recipes.results));
-      setCuisine(recipes.results);
-      console.log(recipes.results);
-    }
+    const data = await fetch(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&cuisine=${name}`
+    );
+    const recipes = await data.json();
+    setCuisine(recipes.results);
   };
 
   useEffect(() => {
