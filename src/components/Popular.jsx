@@ -48,12 +48,12 @@ function Popular() {
           }}
           extensions={{ AutoScroll }}
         >
-          {popular.map((recipe) => {
+          {popular.map((item) => {
             return (
-              <SplideSlide key={recipe.id}>
+              <SplideSlide key={item.id}>
                 <Card>
-                  <Link to={`/recipe/${recipe.id}`}>
-                    <p>{recipe.title}</p>
+                  <Link to={`/recipe/${item.id}`}>
+                    <p>{item.title}</p>
                     <img src={recipe.image} alt={recipe.title} />
                     <Gradient />
                   </Link>
